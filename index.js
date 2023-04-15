@@ -21,6 +21,14 @@ function handleKeyDown(event) {
       let upInterval = setInterval(() => {
         if ((position) => 200) {
           clearInterval(upInterval);
+
+          let downInterval = setInterval(() => {
+            if(position <= 50) {
+              clearInterval(downInterval);
+              isJumping = false;
+            }
+          })
+
         } else {
           position += 10;
           dino.style.bottom = position + "px";
@@ -30,7 +38,17 @@ function handleKeyDown(event) {
   }
 }
 
+function updateObstaclePosition() {
+  obstaclePosition -= speed;
+  if(nextObstacle === 'cactus') {
+    cactus.style.right = 550 - obstaclePosition + 'px';
+  } else if (nextObstacle === 'bird') {
+    bird.style.right = 550 - obstaclePosition + 'px';
+  }
+}
+
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
+  console.log('click')
   document.addEventListener("keydown", handleKeyDown);
 });
