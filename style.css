@@ -20,8 +20,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
   background: no-repeat url('/assets/map.png') 0 80px / 1000px 100%;
 }
 
